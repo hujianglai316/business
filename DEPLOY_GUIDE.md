@@ -6,7 +6,7 @@
 
 1. **`.gitignore`** - 已配置忽略不必要的文件
 2. **`vite.config.ts`** - 已配置 GitHub Pages 部署路径
-3. **`package.json`** - 已添加 homepage 和部署脚本
+3. **`package.json`** - 已添加 homepage 字段
 4. **GitHub Actions** - 已配置自动部署工作流
 5. **README.md** - 已创建项目文档
 
