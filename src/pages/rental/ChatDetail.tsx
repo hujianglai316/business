@@ -36,7 +36,7 @@ const ChatDetail: React.FC = () => {
   const [recordingTime, setRecordingTime] = useState(0);
   const [isQuickReplyModalVisible, setIsQuickReplyModalVisible] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const recordingTimerRef = useRef<NodeJS.Timeout>();
+  const recordingTimerRef = useRef<number>();
 
   // 模拟获取聊天信息
   useEffect(() => {
@@ -138,7 +138,7 @@ const ChatDetail: React.FC = () => {
   const handleStartRecording = () => {
     setIsRecording(true);
     setRecordingTime(0);
-    recordingTimerRef.current = setInterval(() => {
+    recordingTimerRef.current = window.setInterval(() => {
       setRecordingTime(prev => {
         if (prev >= 60) {
           handleStopRecording();
@@ -152,7 +152,7 @@ const ChatDetail: React.FC = () => {
   const handleStopRecording = () => {
     setIsRecording(false);
     if (recordingTimerRef.current) {
-      clearInterval(recordingTimerRef.current);
+      window.clearInterval(recordingTimerRef.current);
     }
     // 这里应该处理录音文件的上传
     message.success('录音已保存');
