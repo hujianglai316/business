@@ -9,6 +9,13 @@ declare module '*.ts' {
   export default content;
 }
 
+// 修复 NodeJS.Timeout 类型问题
+declare global {
+  namespace NodeJS {
+    interface Timeout extends ReturnType<typeof setTimeout> {}
+  }
+}
+
 // 声明特定模块
 declare module './pages/PromotionCenter' {
   import React from 'react';
